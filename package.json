@@ -1,0 +1,23 @@
+{
+  "name": "example-bot",
+  "module": "src/main.ts",
+  "type": "module",
+  "engineStrict": true,
+  "devDependencies": {
+    "@types/node": "^20.14.9"
+  },
+  "peerDependencies": {
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.6.0"
+  },
+  "scripts": {
+    "start": "rm -rf dist && tsc && node dist/shard.js",
+    "build": "rm -rf dist && tsc",
+    "watch": "tsc -w",
+    "fmt": "bun x prettier --write ."
+  }
+}

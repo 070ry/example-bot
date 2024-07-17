@@ -1,4 +1,4 @@
-## GitHub Commit Message Writing Guide
+## Commit rule
 
 **1. Write Specifics**
 
