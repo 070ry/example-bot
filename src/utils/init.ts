@@ -1,5 +1,4 @@
 import {
-  Collection,
   Client as Discord,
   GatewayIntentBits,
   DefaultWebSocketManagerOptions as WebSocketOptions,
@@ -11,6 +10,7 @@ export class Client {
   private i14a = i14a;
   public async init() {
     this.client = new Discord({ intents: this.getIntents() });
+    /* @ts-ignore */
     WebSocketOptions.identifyProperties.browser = 'Discord Android';
     await this.client.login(this.i14a.env.token);
 
