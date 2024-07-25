@@ -4,7 +4,7 @@
   "type": "module",
   "engineStrict": true,
   "devDependencies": {
-    "@types/node": "^20.14.9"
+    "@types/node": "^20.14.11"
   },
   "peerDependencies": {
     "typescript": "^5.5.2"
@@ -12,11 +12,14 @@
   "dependencies": {
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
-    "eslint": "^9.6.0"
+    "eslint": "^9.7.0",
+    "npm": "^10.8.2"
   },
   "scripts": {
     "start": "rm -rf dist && tsc && node dist/shard.js",
     "build": "rm -rf dist && tsc",
+    "rmcache": "rm -rf node_modules/.cache && rm -rf dist",
+    "lint": "eslint",
     "watch": "tsc -w",
     "fmt": "bun x prettier --write ."
   }

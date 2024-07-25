@@ -13,9 +13,9 @@ const { uploadSlashCommand } = new Utilities();
 
 (async () => {
   const { client } = await new Client().init();
-  if (!client.user) return new Crash('User not found');
+  if (!client.user) throw new Crash('User not found');
 
-  await client.on('ready', ready);
+  client.on('ready', ready);
   client.on('messageCreate', create);
   client.on('interactionCreate', interaction);
 

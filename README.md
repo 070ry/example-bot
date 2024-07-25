@@ -11,6 +11,4 @@
 
 ## Links
 
-- [Discord server][discord]
-
-[discord]: https://discord.gg/mkCxuSfXjq
+- [Discord server][https://discord.gg/mkCxuSfXjq]

@@ -5,7 +5,7 @@ import {
   MessageApplicationCommandData,
 } from 'discord.js';
 
-const data: {
+export const SlashCommandData: {
   name: string;
   description: string;
   descriptionLocalizations?: Record<string, string>;
@@ -16,7 +16,7 @@ const data: {
   type?: number;
 } = {};
 
-export const types: {
-  data: typeof data;
+export const command: {
+  data: typeof SlashCommandData;
   run: (interaction: CommandInteraction) => Promise<void>;
 };

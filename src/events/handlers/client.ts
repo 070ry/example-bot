@@ -7,21 +7,27 @@ import { Utilities } from '../../utils/utilities.js';
 
 /* init */
 const { getCommands } = new Utilities();
+const {
+  version,
+  logger: { info },
+} = i14a;
 
+/* main */
 export async function ready(client: Client) {
   const { files } = await getCommands();
   client.user?.setPresence({
     activities: [{ name: 'with Discord.js' }],
     status: 'online',
   });
-  console.log(
-    [
-      '⊡ Client is now ready!',
-      ` ⊳ Logged in as ${client.user?.tag}!`,
-      ` ⊳ ID: ${client.user?.id}`,
-      ` ⊳ Loaded ${files.length} command(s)`,
-      ` ⊳ ${client.guilds.cache.size} server(s)`,
-      ` ⊳ Version: ${i14a.version}\n`,
-    ].join('\n')
-  );
+
+  const message = [
+    '⊡ Client is now ready!',
+    ` ⊳ Logged in as ${client.user?.tag}!`,
+    ` ⊳ ID: ${client.user?.id}`,
+    ` ⊳ Loaded ${files.length} command(s)`,
+    ` ⊳ ${client.guilds.cache.size} server(s)`,
+    ` ⊳ Version: ${version}\n`,
+  ].join('\n');
+
+  info(message);
 }
