@@ -1,4 +1,4 @@
-export const Command: typeof import('../../types/slashCommand.js').types = {
+export const Command: typeof import('../../types/index.js').command = {
   data: {
     name: 'ping',
     description: '現在のPing値を表示します。',
@@ -10,16 +10,20 @@ export const Command: typeof import('../../types/slashCommand.js').types = {
       'zh-TW': '顯示當前Ping值。',
     },
   },
-  run: async (interaction): Promise<void> => {
+  run: async interaction => {
     const start = Date.now();
     await interaction.reply({
       embeds: [
         {
           author: {
             name: 'Ping',
-            icon_url: 'https://discord.com/assets/448f3e14d5bfcf0e3aa2.svg',
+            icon_url:
+              'https://cdn.discordapp.com/emojis/1263268334804140113.webp?size=64&quality=lossless',
           },
-          description: `**${interaction.client.ws.ping}ms**`,
+          description: [
+            `**Client websocket ping**: ${interaction.client.ws.ping}ms`,
+            '**Interaction delay:** Calculating...',
+          ].join('\n'),
         },
       ],
     });

@@ -1,10 +1,8 @@
+/* modules */
 import { Client, Collection, Guild } from 'discord.js';
-import * as fs from 'fs';
+import fs from 'fs';
 
-// import { i14a } from '../configs/i14a.js';
-// import { GetTools } from '../utils/get.js';
-// import { Crash } from './error.js';
-
+/* main */
 async function getCommands(): Promise<{ commands: Collection<string, any>; files: string[] }> {
   const commands: Collection<string, any> = new Collection();
   const files = fs
@@ -28,8 +26,7 @@ export class Utilities {
   }
 
   public async uploadSlashCommand(client: Client) {
-
-    const { commands, files } = await getCommands();
+    const { commands } = await getCommands();
 
     await client.guilds.cache.forEach((guild: Guild) =>
       guild.commands.set(commands.map(cmd => cmd.data))
