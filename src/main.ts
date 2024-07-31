@@ -11,6 +11,7 @@ import { interaction } from './events/handlers/interaction.js';
 /* initialize */
 const { uploadSlashCommand } = new Utilities();
 
+/* main */
 (async () => {
   const { client } = await new Client().init();
   if (!client.user) throw new Crash('User not found');

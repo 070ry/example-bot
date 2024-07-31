@@ -1,11 +1,8 @@
 import { Shard, ShardingManager } from 'discord.js';
-import { config } from 'dotenv';
+import 'dotenv/config';
 
-config();
-
-const manager = new ShardingManager('./dist/main.js', { token: process.env.TOKEN });
-
-manager.on('shardCreate', async (shard: Shard) => {
-  console.log(`⊱ Launched shard ${shard.id} (PID: ${shard.process?.pid ?? 'N/A'})\n`);
-});
-manager.spawn();
+new ShardingManager('./dist/main.js', { token: process.env.TOKEN })
+  .on('shardCreate', async (shard: Shard) => {
+    console.log(`⊱ Launched shard ${shard.id} (PID: ${shard.process?.pid ?? 'N/A'})\n`);
+  })
+  .spawn();
